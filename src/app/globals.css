@@ -1,49 +1,26 @@
 @import "tailwindcss";
 
-
-@theme  {
-  /* Couleurs dark-mode-first */
-  --color-dark-900: #121826;
-  --color-dark-800: #1A2035;
-  --color-dark-700: #2A3045;
-  --color-primary: #3D86CB;
-  --color-secondary: #28409C;
-  --color-accent: #82D4E8;
-
-  /* Polices */
-  --font-sans: 'Montserrat', sans-serif;
-  --font-display: 'Playfair Display', serif;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-
-
-
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
-}
-/* Dans globals.css */
-.sticky-highlight {
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--color-accent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
-  &:hover::after {
-    transform: scaleX(1);
-  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
